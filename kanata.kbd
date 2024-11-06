@@ -1,0 +1,507 @@
+;; For a complete interactive tour, see https://configure.zsa.io/voyager/layouts/OolR3/
+
+
+(defcfg
+  process-unmapped-keys yes
+  delegate-to-first-layer yes
+  concurrent-tap-hold yes
+  windows-interception-mouse-hwids (
+    ;; Add your mouse hwid here to allow reprogramming of your Back/Forward buttons (used to mirror KB to left side when hand is on mouse).
+    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 49, 0, 52, 0, 52, 0, 48, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 49, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 49, 0, 52, 0, 52, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 56, 0, 65, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 50, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 56, 0, 65, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 54, 0, 69, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 50, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 54, 0, 69, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+  )
+  ;; windows-interception-keyboard-hwids (
+    ;; My laptop keyboard HWID, in case I need a fallback during testing.
+    ;; "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 48, 0, 49, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 49, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 48, 0, 49, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 54, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 75, 0, 69, 0, 89, 0, 66, 0, 79, 0, 65, 0, 82, 0, 68, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 54, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+  ;; )
+)
+
+(defsrc
+  `         1       2      3        4       5        6      7      8      9      0      -    =    bspc
+  tab       q       w      e        r       t        y      u      i      o      p      [    ]    \
+  caps      a       s      d        f       g        h      j      k      l      ;      '    ret
+  lsft      z       x      c        v       b        n      m      ,      .      /      rsft
+  lctl      lmet    lalt   spc      ralt    comp     rctl
+
+  mfwd mbck
+)
+
+(deflayer base
+  XX        @m1     @m2    @m3      @m4     @m5      @m6    @m7    @m8    @m9    @m0    @game bspc bspc 
+  @tabhyper @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX 
+  @escext   @a      @s     @d       @f      @g       h      j      k      l      ;      @'game ret 
+  @bspclsft @zalt   @x     @c       @v      @b       n      m      ,      .      @/alt  @delrsft 
+  XX        XX      @wsctl spc      @nmsm   XX       XX  
+
+  @nmsm f24 ;; mouse: back button set to f24 and used as fork check for mirroring left right hand onto left
+)
+
+(deflayer numsym
+  _         _       _      _        _       _        _      _      _      _      _      _    _    _   
+  _         @`~     S--    -        [       ]        S-[    S-]    S-=    =      @\|    _    _    _ 
+  _         @1      @2     @3       @4      @5       6      7      8      9      0      S-;  _  
+  _         @!alt   S-8    S-4      S-9     S-0      S-,    S-.    _      _      _      _   
+  _         _       _      _        _       _        _   
+
+  _    _   
+)
+
+(deflayer fnsym
+  _         _       _      _        _       _        _      _      _      _      _      _    _    _   
+  _         f1      f2     f3       f4      f5       f6     f7     f8     f9     f10    f11  XX   _ 
+  _         S-1     S-2    S-3      S-4     S-5      S-6    S-7    S-8    S-9    S-0    f12  XX 
+  _         _       XX     XX       XX      XX       XX     XX     XX     XX     @?alt  _   
+  _         _       _      lmet     _       _        _   
+
+  _    _   
+)
+
+(deflayer extend
+  _         _       _      _        _       _        _      _      _      _      _      _    _    _   
+  _         A-f4    XX     @mwu     f2      XX       prev   vold   volu   next   pp     _    _    _ 
+  _         ret     @shrnk @mwd     lsft    @grow    left   down   up     rght   brdn   brup _  
+  _         lrld    XX     @scsht   @clipb  caps     home   pgdn   pgup   end    _      _   
+  _         _       _      @lmet    _       _        _   
+
+  _    _   
+)
+
+;; for 3x6 keyboards, activated with a single @wsctl tap
+;; I still prefer 4-row board.
+(deflayer workspaces
+  _         _       _      _        _       _        _      _      _      _      _      _    _    _   
+  _         XX      XX     XX       XX      XX       XX     XX     XX     XX     XX     XX   _    _ 
+  _         @om1    @om2   @om3     @om4    @om5     @om6   @om7   @om8   @om9   @om0   XX   _  
+  _         _       XX     XX       XX      XX       XX     XX     XX     XX     XX     _   
+  _         _       _      _        _       _        _   
+
+  _    _   
+)
+
+(deflayer meta-trap
+  _         _       _      _        _       _        _      _      _      _      _      _    _    _   
+  _         XX      XX     XX       XX      XX       XX     XX     XX     XX     XX     XX   _    _ 
+  _         @mt1    @mt2   @mt3     @mt4    @mt5     @mt6   @mt7   @mt8   @mt9   @mt0   XX   _  
+  _         _       XX     XX       XX      XX       XX     XX     XX     XX     XX     _   
+  _         _       _      _        _       _        _   
+
+  _    _   
+)
+
+(deflayer game
+  XX        1       2      3        4       5        6      7      8      9      0      @base bspc bspc 
+  tab       @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX 
+  esc       @a      @s     @d       @f      @g       h      j      k      l      ;      @'base ret 
+  lsft      @gz     @x     @c       @v      @b       n      m      ,      .      /      @delrsft 
+  XX        XX      @wsctl spc      @nmsm   XX       XX  
+
+  @nmsm f24 ;; mouse: back button set to f24 and used as fork check for mirroring left right hand onto left
+)
+
+(defvar
+  tap-timeout 100
+  hold-timeout 150
+  tt $tap-timeout
+  ht $hold-timeout
+
+  slow-tap-timeout 150
+  slow-hold-timeout 275
+  stt $slow-tap-timeout
+  sht $slow-hold-timeout
+
+  one-shot-timer 500
+  ost $one-shot-timer
+
+  delay-fix 15
+  df $delay-fix
+)
+
+;; Since Windows' Start menu shortcut can't be easily changed we use Kanata for it:
+;; Set PowerToys' Run to Win+Spc and avoid the awful Start menu.
+(platform (win winiov2 wintercept)
+  ;; Tap for M-spc, hold for lmet:
+  (defalias lmet (tap-hold-press 0 $ht M-spc lmet))
+)
+;; Meta is left alone on Linux/Mac but must be defined:
+(platform (linux macos)
+  (defalias lmet lmet)
+)
+
+(defalias ;; layer switches
+  ;; Tap for OSL to workspaces, hold for control:
+  wsctl (tap-hold-press 0 $ht (one-shot $ost (layer-while-held workspaces)) lctl)
+  ;; Tap for OSL to fnsym, hold for numsym:
+  nmsm (tap-hold-press 0 $ht (one-shot $ost (layer-while-held fnsym)) (layer-while-held numsym))
+  ;; Tap for esacpe, hold for extend layer.
+  escext (tap-hold-press 0 $ht esc (layer-while-held extend))
+  base (tap-hold 0 1000 XX (layer-switch base))
+  game (tap-hold 0 1000 XX (layer-switch game))
+  'base (tap-hold 250 1000 ' (layer-switch base))
+  'game (tap-hold 250 1000 ' (layer-switch game))
+)
+
+(defalias ;; tap-holds
+  delrsft (tap-hold-press $tt $ht del rsft)
+  bspclsft (fork (tap-hold-press $tt $ht bspc lsft) @delrsft (f24))
+
+  zalt (tap-hold-press 0 $sht z ralt)
+  /alt (tap-hold-press 0 $sht / ralt)
+  !alt (tap-hold 0 $ht S-1 ralt)
+  ?alt (tap-hold 0 $ht S-/ ralt)
+
+  tabhyper (tap-hold-press $tt $ht tab (multi lmet lctl lalt lsft)) ;; Then, set OS to launch apps via Hyper+letter
+
+  `~ (tap-hold $tt $ht ` S-`)
+  \| (tap-hold 0 $ht \ S-\)
+)
+
+(defalias ;; extend macros
+  mwu (mwheel-up 80 120)
+  mwd (mwheel-down 80 120)
+  clipb (multi lctl lalt lsft lmet v) ;; Set CopyQ shortcut to match
+  scsht prtsc ;; defined as an alias as I may add tap-hold or double-tap to this for alternative SS modes
+  grow M-r ;; Cosmic window resizing, in Extend layer as it requires holding+arrows
+  shrnk M-S-r ;; Cosmic window resizing, in Extend layer as it requires holding+arrows
+)
+
+(defalias
+  ;; Base forks. See https://github.com/jtroo/kanata/discussions/1041
+  ;; for a potentially better implementation
+  q (fork q p (f24)) 
+  w (fork w o (f24))
+  e (fork e i (f24)) 
+  r (fork r u (f24)) 
+  t (fork t y (f24))
+  a (fork a ' (f24)) 
+  s (fork s l (f24)) 
+  d (fork d k (f24)) 
+  f (fork f j (f24)) 
+  g (fork g h (f24))
+  z (fork @zalt @/alt (f24))
+  gz (fork z / (f24))
+  x (fork x . (f24)) 
+  c (fork c , (f24)) 
+  v (fork v m (f24)) 
+  b (fork b n (f24))
+  
+  ;; NumSym forks
+  1 (fork 1 0 (f24)) 
+  2 (fork 2 9 (f24)) 
+  3 (fork 3 8 (f24)) 
+  4 (fork 4 7 (f24)) 
+  5 (fork 5 6 (f24))
+)
+
+;; Workspace / App launching setup (simple to use, but complex implementation)
+;; See https://github.com/jtroo/kanata/discussions/1303
+;; And https://github.com/jtroo/kanata/issues/1306
+
+(defvirtualkeys 
+ vmet lmet
+ meta-trap (layer-while-held meta-trap)
+ timer-rls-vmet (macro-release-cancel 350
+  (on-press release-vkey vmet))
+ timer-rls-vmet-layer (macro-release-cancel 350
+  (on-press release-vkey vmet) (on-press release-vkey meta-trap))
+)
+
+(defalias
+  k1 1
+  m1
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k1
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-1
+    )
+  om1
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k1
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-1
+    )
+  mt1 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m1
+    @k1
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+  
+
+  k2 2
+  m2
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k2
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-2
+    )
+  om2
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k2
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-2
+    )
+  mt2 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m1
+    @k2
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+  
+
+  k3 3
+  m3
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k3
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-3
+    )
+  
+  om3
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k3
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-3
+    )
+  mt3 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m3
+    @k3
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+
+  k4 4
+  m4
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k4
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-4
+    )
+  om4
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k4
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-4
+    )
+  mt4 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m4
+    @k4
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+  k5 5
+  m5
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k5
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-5
+    )
+  
+  om5
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k5
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-5
+    )
+
+  mt5 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m5
+    @k5
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+  k6 6
+  m6
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k6
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-6
+    )
+  
+  om6
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k6
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-6
+    )
+
+  mt6 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m6
+    @k6
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+      k7 7
+
+  m7
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k7
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-7
+    )
+  
+  om7
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k7
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-7
+    )
+
+  mt7 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m7
+    @k7
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+  k8 8
+  m8
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k8
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-8
+    )
+  
+  om8
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k8
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-8
+    )
+
+  mt8 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m8
+    @k8
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+  k9 9
+  m9
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k9
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-9
+    )
+  
+  om9
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k9
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-9
+    )
+
+  mt9 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m9
+    @k9
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+  k0 0
+
+  m0
+    (tap-hold $tt $ht 
+      (macro
+      (on-press press-vkey vmet) $df ;; had timing issues when using this exact same sequence as a "multi" action
+      @k0
+      (on-press release-vkey timer-rls-vmet)
+      (on-press press-vkey   timer-rls-vmet)
+      )
+    M-S-0
+    )
+  
+  om0
+    (tap-hold $tt $ht
+      (macro
+      (on-press press-vkey vmet)
+      (on-press press-vkey meta-trap) $df
+      @k0
+      (on-press release-vkey timer-rls-vmet-layer)
+      (on-press press-vkey   timer-rls-vmet-layer)
+      )
+      M-S-0
+    )
+
+  mt0 (macro ;; looks convoluted, but had weird timing issues when trying to nest another press-vkey vmet from @m0
+    @k0
+    (on-press release-vkey timer-rls-vmet-layer)
+    (on-press press-vkey   timer-rls-vmet-layer)
+  )
+
+)
