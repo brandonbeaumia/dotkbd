@@ -1,96 +1,119 @@
-;; For a complete interactive tour, see https://configure.zsa.io/voyager/layouts/OolR3/
-
+;; Welcome to my layout! This...
+;; ) is broadly compatible: if your keyboard has a number row, this config will work and be comfortable.
+;; ) is easy to learn and grow in to: matches QWERTY and avoids sticky modifiers and layers.
+;; ) prioritizes the left hand for keyboard+mouse work.
+;; ) prioritizes fast and accessible modifier/shortcut combos
+;; ) allows right-handed shortcuts without taking your hand off the mouse.
+;; ) allows responsive 130+ WPM by shying away from tap-holds and mod-holds on alpha keys.
+;; ) has good data entry characteristics via numbers on home row and symbols surrounding them.
+;; ) AND is interactively documented at https://configure.zsa.io/voyager/layouts/5qRME/latest/0/intro
 
 (defcfg
   process-unmapped-keys yes
   delegate-to-first-layer yes
-  concurrent-tap-hold yes
-  windows-interception-mouse-hwids (
-    ;; Add your mouse hwid here to allow reprogramming of your Back/Forward buttons (used to mirror KB to left side when hand is on mouse).
-    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 48, 0, 52, 0, 54, 0, 68, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 67, 0, 53, 0, 51, 0, 70, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 52, 0, 52, 0, 48, 0, 49, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 49, 0, 38, 0, 67, 0, 111, 0, 108, 0, 48, 0, 49, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 48, 0, 52, 0, 54, 0, 68, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 67, 0, 53, 0, 51, 0, 70, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 49, 0, 38, 0, 67, 0, 111, 0, 108, 0, 48, 0, 49, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 48, 0, 52, 0, 54, 0, 68, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 49, 0, 52, 0, 52, 0, 48, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 49, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 49, 0, 52, 0, 52, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 51, 0, 48, 0, 70, 0, 65, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 56, 0, 65, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 50, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 56, 0, 65, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-    "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 54, 0, 69, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 50, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 54, 0, 69, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 49, 0, 53, 0, 51, 0, 50, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 77, 0, 79, 0, 85, 0, 83, 0, 69, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 50, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+
+  ;; Kanata captures everything on Linux by default (including lid switch, power button, trackpad, etc),
+  ;; so we have to give it these device names to switch Kanata to allow-list mode instead
+  linux-dev-names-include (
+    "AT Translated Set 2 keyboard"
+    "Logitech G305"
+    "Razer Razer DeathAdder Essential"
+    "Razer Razer DeathAdder Essential Keyboard"
+    "ZMK Project Lily58 Mouse"
+    "ZMK Project Lily58 Keyboard"
+    "Lily58 Mouse"
+    "Lily58 Keyboard"
   )
-  ;; windows-interception-keyboard-hwids (
-    ;; My laptop keyboard HWID, in case I need a fallback during testing.
-    ;; "72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 48, 0, 49, 0, 38, 0, 82, 0, 69, 0, 86, 0, 95, 0, 48, 0, 49, 0, 48, 0, 48, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 80, 0, 73, 0, 68, 0, 95, 0, 48, 0, 48, 0, 48, 0, 49, 0, 38, 0, 77, 0, 73, 0, 95, 0, 48, 0, 48, 0, 0, 0, 72, 0, 73, 0, 68, 0, 92, 0, 86, 0, 73, 0, 68, 0, 95, 0, 66, 0, 69, 0, 69, 0, 66, 0, 38, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 54, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 83, 0, 89, 0, 83, 0, 84, 0, 69, 0, 77, 0, 95, 0, 75, 0, 69, 0, 89, 0, 66, 0, 79, 0, 65, 0, 82, 0, 68, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 95, 0, 85, 0, 80, 0, 58, 0, 48, 0, 48, 0, 48, 0, 49, 0, 95, 0, 85, 0, 58, 0, 48, 0, 48, 0, 48, 0, 54, 0, 0, 0, 72, 0, 73, 0, 68, 0, 95, 0, 68, 0, 69, 0, 86, 0, 73, 0, 67, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-  ;; )
 )
 
 (defsrc
+  esc       f1      f2     f3       f4      f5       f6     f7     f8     f9     f10    f11  f12
   `         1       2      3        4       5        6      7      8      9      0      -    =    bspc
   tab       q       w      e        r       t        y      u      i      o      p      [    ]    \
   caps      a       s      d        f       g        h      j      k      l      ;      '    ret
   lsft      z       x      c        v       b        n      m      ,      .      /      rsft
-  lctl      lmet    lalt   spc      ralt    comp     rctl
+  lctl      lmet    lalt   spc      ralt    rmet     rctl
 
-  mfwd mbck
+  mlft mrgt mmid mfwd mbck ;; mouse buttons.
+  ;; While we don't change the primary mouse buttons, we at least need to define them so that
+  ;; tap-hold modifiers (shift+click, mostly) are immediately responsive instead of requiring a delay
 )
+
 
 (deflayer base
-  XX        @m1     @m2    @m3      @m4     @m5      @m6    @m7    @m8    @m9    @m0    @game bspc bspc
-  @tabhyper @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX
+  @escdel   @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12
+  @`        @n1     @n2    @n3      @n4     @n5      @n6    @n7    @n8    @n9    @n0    -    =    bspc
+  @tabultra @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX
   @escext   @a      @s     @d       @f      @g       h      j      k      l      ;      '    ret
   @bspclsft @zalt   @x     @c       @v      @b       n      m      ,      .      @/alt  @delrsft
-  XX        XX      @wsctl spc      @nmsm   XX       XX
+  lctl      lctl    lctl   spc      @nmsm   @nmsm    @nmsm
 
-  @nmsm f24 ;; mouse: back button set to f24 and used as fork check for mirroring left right hand onto left
-)
+  ;; To help standardize across a few different physical layouts,
+  ;; keys to the left of space are lctl and keys to the right are @nmsm
+
+  mlft mrgt mmid @nmsm f24
+) 
+
 
 (deflayer numsym
-  _         _       _      _        _       _        _      _      _      _      _      _    _    _
-  _         @`~     S--    -        [       ]        S-[    S-]    S-=    =      @\|    _    _    _
+  _         _       _      _        _       _        _      _      _      _      _      _    _
+  @f12      @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12  @f11 ;; f11+f12 for 6-column board compatibility
+  _         @`~     S--    -        [       ]        S-[    S-]    S-=    =      @\|    _    _     _
   _         @1      @2     @3       @4      @5       6      7      8      9      0      S-;  _
-  _         @!alt   S-8    S-4      S-9     S-0      S-,    S-.    _      _      _      _
+  _         @!alt   @S-8   @S-4     S-9     S-0      S-,    S-.    _      _      _      _
   _         _       _      _        _       _        _
 
-  _    _
+  _    _    _    _    _
 )
 
-(deflayer fnsym
-  _         _       _      _        _       _        _      _      _      _      _      _    _    _
-  _         f1      f2     f3       f4      f5       f6     f7     f8     f9     f10    f11  XX   _
-  _         S-1     S-2    S-3      S-4     S-5      S-6    S-7    S-8    S-9    S-0    f12  XX
-  _         _       XX     XX       XX      XX       XX     XX     XX     XX     @?alt  _
-  _         _       _      lmet     _       _        _
-
-  _    _
-)
 
 (deflayer extend
+  _         @hw1    @hw2   @hw3     @hw4    @hw5     @hw6   @hw7   @hw8   @hw9   @hw10  @hw11 @hw12 ;; hardware control (sound, brightness, etc) shortcuts
   _         _       _      _        _       _        _      _      _      _      _      _    _    _
   _         A-f4    XX     @mwu     f2      XX       prev   vold   volu   next   pp     _    _    _
-  _         ret     @shrnk @mwd     lsft    @grow    left   down   up     rght   brdn   brup _
+  _         ret     XX     @mwd     lsft    @gaming  left   down   up     rght   brdn   brup _
   _         lrld    XX     @scsht   @clipb  caps     home   pgdn   pgup   end    _      _
   _         _       _      @lmet    _       _        _
 
-  _    _
+  _    _    _    _    _
 )
 
-;; for 3x6 keyboards, activated with a single @wsctl tap
-;; I still prefer 4-row board.
-(deflayer workspaces
-  _         _       _      _        _       _        _      _      _      _      _      _    _    _
-  _         XX      XX     XX       XX      XX       XX     XX     XX     XX     XX     XX   _    _
-  _         @om1    @om2   @om3     @om4    @om5     @om6   @om7   @om8   @om9   @om0   XX   _
-  _         _       XX     XX       XX      XX       XX     XX     XX     XX     XX     _
-  _         _       _      _        _       _        _
+;; Gaming layer removes tap-hold functionality from left hand so that holding sends the appropriate input to games.
+;; Still maintains mouse's alpha mirroring and fkey-hold+mirroring to double your keybind options.
+(deflayer gaming
+  _         _       _      _        _       _        _      _      _      _      _      _    _
+  _         1       2      3        4       5        6      7      8      9      0      _    _    _
+  tab       _       _      _        _       _        _      _      _      _      _      _    _    _
+  _         _       _      _        _       _        _      _      _      _      _      _    _
+  lsft      _       _      _        _       _        _      _      _      _      _      _
+  bspc      lctl    lalt   _        _       _        _
 
-  _    _
+  _    _    _    _    _
 )
 
-(deflayer game
-  XX        1       2      3        4       5        6      7      8      9      0      @base bspc bspc
-  tab       @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX
-  esc       @a      @s     @d       @f      @g       h      j      k      l      ;      '    ret
-  lsft      @gz     @x     @c       @v      @b       n      m      ,      .      /      @delrsft
-  XX        XX      @wsctl spc      @nmsm   XX       XX
+;; Todo: implement good mouse layer accessed via (, .) 'togglemouse' combo
+;; defalias (
+;;   togglemouse (switch 
+;;     ((layer base)) (layer-switch mouse) break
+;;     ((layer mouse)) (layer-switch base) break
+;;   )
+;; )
 
-  @nmsm f24 ;; mouse: back button set to f24 and used as fork check for mirroring left right hand onto left
+
+
+;; Since Windows' Start menu shortcut can't be easily changed we use Kanata for it.
+;; Set PowerToys' Run (or preferred launcher) to Win+Spc and avoid the awful Start menu.
+;; Tap for M-spc, hold for lmet:
+(platform (win winiov2 wintercept)
+  (defalias lmet (tap-hold-press 0 $ht M-spc lmet))
 )
 
-(defvar
+;; Meta is left alone on Linux/Mac but still must be defined:
+(platform (linux macos)
+  (defalias lmet lmet)
+)
+
+(defvar ;; Generic variables for use throughout config:
   tap-timeout 100
   hold-timeout 150
   tt $tap-timeout
@@ -106,128 +129,93 @@
 
   delay-fix 15
   df $delay-fix
-
-  meta-timeout 300
 )
 
-;; Since Windows' Start menu shortcut can't be easily changed we use Kanata for it:
-;; Set PowerToys' Run to Win+Spc and avoid the awful Start menu.
-(platform (win winiov2 wintercept)
-  ;; Tap for M-spc, hold for lmet:
-  (defalias lmet (tap-hold-press 0 $ht M-spc lmet))
-)
-;; Meta is left alone on Linux/Mac but must be defined:
-(platform (linux macos)
-  (defalias lmet lmet)
-)
-
-(defalias ;; layer switches
-  ;; Tap for one-shot layer to workspaces, hold for control:
-  wsctl (tap-hold-press 0 $ht (one-shot $ost (layer-while-held workspaces)) lctl)
-  ;; Tap for one-shot layer to fnsym, hold for numsym:
-  nmsm (tap-hold-press 0 $ht (one-shot $ost (layer-while-held fnsym)) (layer-while-held numsym))
-  ;; Tap for escape, hold for extend layer:
+(defalias
+  nmsm (layer-while-held numsym)
   escext (tap-hold-press 0 $ht esc (layer-while-held extend))
+  gaming (tap-hold 0 300 (layer-switch gaming) (layer-switch base)) ;; 'hold' always returns to base, 'tap' always goes to gaming.
 
-  base (tap-hold 0 1000 XX (layer-switch base))
-  game (tap-hold 0 1000 XX (layer-switch game))
-)
+  ;; For all fork commands: mirror right half of keyboard onto left half when holding "f24",
+  ;; which is set to the mouse 'back' button.
 
-(defalias ;; tap-holds
+  ;; tabultra is one exception to standard mirroring. Instead of mirroring, it "reverses" the tab key by changing it to shift-tab.
+  ;; For left-handed use, this makes an otherwise impossible shortcut (leftpinky + leftpinky) an easy mousethumb + leftpinky.
+
+  tabultra (fork (tap-hold-press 0 $ht tab (multi lalt lctl lmet)) (tap-hold-press 0 $ht S-tab (multi lalt lctl lmet)) (f24))
+  ;; tabultra (like "hyper", get it?...) is fundamental to allowing as many (num) shortcuts as possible for workspace and app management.
+  ;; We exclude Shift from this key because holding the number gives you the shifted variation. So tab+(num) is
+  ;; a full set of shortcuts, and tab+(holdnum) is another full set of shortcuts.
+  ;; Similar logic applies to Meta+(num/holdnum).
+
   delrsft (tap-hold-press $tt $ht del rsft)
-  bspclsft (fork (tap-hold-press $tt $ht bspc lsft) @delrsft (f24))
+  bspclsft (tap-hold-press $tt $ht bspc lsft)
+  ;; Mirroring bspclsft to delrsft is not recommended, as it makes for too many mouse button toggles when you make a mistake
+  ;; during mirroring. Instead, to access del from left hand, use the top-left key (mnemonic of "the opposite backspace").
 
-  zalt (tap-hold-press 0 $sht z ralt)
-  /alt (tap-hold-press 0 $sht / ralt)
+  zalt (tap-hold-press 0 $sht z ralt) ;; sometimes annoying at 120+ wpm, but rarely misfires more than 1x/day
+  /alt (tap-hold-press 0 $sht / ralt) ;; even less common, this one almost never interferes
   !alt (tap-hold 0 $ht S-1 ralt)
   ?alt (tap-hold 0 $ht S-/ ralt)
 
-  tabhyper (tap-hold-press $tt $ht tab (multi lmet lctl lalt lsft)) ;; Then, set OS to launch apps via Hyper+letter
-
   `~ (tap-hold $tt $ht ` S-`)
   \| (tap-hold 0 $ht \ S-\)
-)
 
-(defalias ;; extend macros
   mwu (mwheel-up 80 120)
   mwd (mwheel-down 80 120)
   clipb (multi lctl lalt lsft lmet v) ;; Set CopyQ shortcut to match
-  scsht prtsc ;; defined as an alias as I may add tap-hold or double-tap to this for alternative SS modes
-  grow M-r ;; Cosmic window resizing, in Extend layer as it requires holding+arrows
-  shrnk M-S-r ;; Cosmic window resizing, in Extend layer as it requires holding+arrows
-)
+  scsht prtsc ;; defined as an alias for future expansion (different SS modes)
 
-(defalias
-  ;; Base forks. See https://github.com/jtroo/kanata/discussions/1041
-  ;; for a potentially better implementation
-  q (fork q p (f24)) 
-  w (fork w o (f24))
-  e (fork e i (f24)) 
-  r (fork r u (f24)) 
-  t (fork t y (f24))
-  a (fork a ' (f24)) 
-  s (fork s l (f24)) 
-  d (fork d k (f24)) 
-  f (fork f j (f24)) 
-  g (fork g h (f24))
-  z (fork @zalt @/alt (f24))
-  gz (fork z / (f24))
-  x (fork x . (f24)) 
-  c (fork c , (f24)) 
-  v (fork v m (f24)) 
-  b (fork b n (f24))
+  q (fork q p (f24)) w (fork w o (f24)) e (fork e i (f24)) r (fork r u (f24)) t (fork t y (f24))
+  a (fork a ' (f24)) s (fork s l (f24)) d (fork d k (f24)) f (fork f j (f24)) g (fork g h (f24))
+  z (fork @zalt @/alt (f24)) x (fork x . (f24)) c (fork c , (f24)) v (fork v m (f24)) b (fork b n (f24))
+  1 (fork 1 0 (f24)) 2 (fork 2 9 (f24)) 3 (fork 3 8 (f24)) 4 (fork 4 7 (f24)) 5 (fork 5 6 (f24))
+
+  S-8 (fork S-8 . (f24)) S-4 (fork S-4 , (f24)) ;; the only symbols in numsym that really need mirrors
+
+  f6 (tap-hold $tt $ht f6 M-f6)
+  f7 (tap-hold $tt $ht f7 M-f7)
+  f8 (tap-hold $tt $ht f8 M-f8)
+  f9 (tap-hold $tt $ht f9 M-f9)
+  f10 (tap-hold $tt $ht f10 M-f10)
+  f11 (tap-hold $tt $ht f11 M-f11)
   
-  ;; NumSym forks
-  1 (fork 1 0 (f24)) 
-  2 (fork 2 9 (f24)) 
-  3 (fork 3 8 (f24)) 
-  4 (fork 4 7 (f24)) 
-  5 (fork 5 6 (f24))
-)
+  f1 (fork (tap-hold $tt $ht f1 M-f1) @f10 (f24))
+  f2 (fork (tap-hold $tt $ht f2 M-f2) @f9 (f24))
+  f3 (fork (tap-hold $tt $ht f3 M-f3) @f8 (f24))
+  f4 (fork (tap-hold $tt $ht f4 M-f4) @f7 (f24))
+  f5 (fork (tap-hold $tt $ht f5 M-f5) @f6 (f24))
+  f12 (fork (tap-hold $tt $ht f12 M-f12) @f11 (f24)) ;; f12 is on left half for 6-column boards so needs mirror
+  
+  ;; To work around f-keys not being reliable on Linux for some laptop hardware, bind these to their relevant function:
+  hw1 XX
+  hw2 XX
+  hw3 XX
+  hw4 XX
+  hw5 XX
+  hw6 XX
+  hw7 XX
+  hw8 XX
+  hw9 XX
+  hw10 XX
+  hw11 XX
+  hw12 XX
 
-;; Workspace / App launching setup (previously complex, see https://github.com/jtroo/kanata/discussions/1303)
-;; Requires version *greater than* 1.7.0 (or compilation from source as of 2024-11-15)
+  ;; required to use number keys in aliases:
+  k1 1 k2 2 k3 3 k4 4 k5 5 k6 6 k7 7 k8 8 k9 9 k0 0
 
-(defvirtualkeys
- vmet lmet
- workspaces (layer-while-held workspaces)
-)
+  n6 (tap-hold $tt $ht @k6 S-6)
+  n7 (tap-hold $tt $ht @k7 S-7)
+  n8 (tap-hold $tt $ht @k8 S-8)
+  n9 (tap-hold $tt $ht @k9 S-9)
+  n0 (tap-hold $tt $ht @k0 S-0)
 
-(defalias
-  k1 1
-  k2 2
-  k3 3
-  k4 4
-  k5 5
-  k6 6
-  k7 7
-  k8 8
-  k9 9
-  k0 0
-
-  ;; tap: begin holding meta for $meta-timeout ms, press #. If tapped again, timer resets and # sent again.
-  ;;    Enables Windows' M+Num shortcuts for app switching and does not interfere with Cosmic
-  ;; hold: send M-S-#
-  m1 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k1) M-S-1)
-  m2 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k2) M-S-2)
-  m3 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k3) M-S-3)
-  m4 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k4) M-S-4)
-  m5 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k5) M-S-5)
-  m6 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k6) M-S-6)
-  m7 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k7) M-S-7)
-  m8 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k8) M-S-8)
-  m9 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k9) M-S-9)
-  m0 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) $df @k0) M-S-0)
-
-  ;; same as above, but also hold workspaces layer on for same duration to enable repeated taps in an otherwise one-shot layer
-  om1 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k1) M-S-1)
-  om2 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k2) M-S-2)
-  om3 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k3) M-S-3)
-  om4 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k4) M-S-4)
-  om5 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k5) M-S-5)
-  om6 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k6) M-S-6)
-  om7 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k7) M-S-7)
-  om8 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k8) M-S-8)
-  om9 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k9) M-S-9)
-  om0 (tap-hold $tt $ht (macro (hold-for-duration $meta-timeout vmet) (hold-for-duration $meta-timeout workspaces) $df @k0) M-S-0)
+  ;; Fork to mirror KB as above
+  escdel (fork esc del (f24))
+  `  (fork (tap-hold $tt $ht `   S-`) del (f24))
+  n1 (fork (tap-hold $tt $ht @k1 S-1) @n0 (f24))
+  n2 (fork (tap-hold $tt $ht @k2 S-2) @n9 (f24))
+  n3 (fork (tap-hold $tt $ht @k3 S-3) @n8 (f24))
+  n4 (fork (tap-hold $tt $ht @k4 S-4) @n7 (f24))
+  n5 (fork (tap-hold $tt $ht @k5 S-5) @n6 (f24))
 )
