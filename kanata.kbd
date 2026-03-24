@@ -153,8 +153,8 @@
 
 ;; ---------- BASE TAP-HOLDS (no forks) ----------
 
-  f6 (tap-hold $tt $ht f6 M-f6)   f7 (tap-hold $tt $ht f7 M-f7)     f8 (tap-hold $tt $ht f8 M-f8)
-  f9 (tap-hold $tt $ht f9 M-f9)  f10 (tap-hold $tt $ht f10 M-f10)  f11 (tap-hold $tt $ht f11 M-f11)
+  f6 (tap-hold $tt $ht f6 S-f6)   f7 (tap-hold $tt $ht f7 S-f7)     f8 (tap-hold $tt $ht f8 S-f8)
+  f9 (tap-hold $tt $ht f9 S-f9)  f10 (tap-hold $tt $ht f10 S-f10)  f11 (tap-hold $tt $ht f11 S-f11)
 
   ;; required to use number keys in aliases:
   k1 1 k2 2 k3 3 k4 4 k5 5 k6 6 k7 7 k8 8 k9 9 k0 0
@@ -173,12 +173,12 @@
   ;; For all fork commands: mirror right half of keyboard onto left half when holding "f24",
   ;; which is set to the mouse 'back' button. Enables one-handed shortcuts across the entire keyboard.
 
-  f1 (fork (tap-hold $tt $ht f1 M-f1) @f10 (f24))
-  f2 (fork (tap-hold $tt $ht f2 M-f2) @f9 (f24))
-  f3 (fork (tap-hold $tt $ht f3 M-f3) @f8 (f24))
-  f4 (fork (tap-hold $tt $ht f4 M-f4) @f7 (f24))
-  f5 (fork (tap-hold $tt $ht f5 M-f5) @f6 (f24))
-  f12 (fork (tap-hold $tt $ht f12 M-f12) @f11 (f24)) ;; f12 is on left half for 6-column boards so needs mirror
+  f1 (fork (tap-hold $tt $ht f1 S-f1) @f10 (f24))
+  f2 (fork (tap-hold $tt $ht f2 S-f2) @f9 (f24))
+  f3 (fork (tap-hold $tt $ht f3 S-f3) @f8 (f24))
+  f4 (fork (tap-hold $tt $ht f4 S-f4) @f7 (f24))
+  f5 (fork (tap-hold $tt $ht f5 S-f5) @f6 (f24))
+  f12 (fork (tap-hold $tt $ht f12 S-f12) @f11 (f24)) ;; f12 is on left half for 6-column boards so needs mirror
 
   n1 (fork (tap-hold $tt $ht @k1 S-1) @n0 (f24))
   n2 (fork (tap-hold $tt $ht @k2 S-2) @n9 (f24))
