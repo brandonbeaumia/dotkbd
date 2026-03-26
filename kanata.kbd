@@ -1,20 +1,24 @@
-;; Welcome to my layout! This...
-;; ) is broadly compatible. ANSI, 60%, 75%, 6-column ortholinear...
-;; )   If your keyboard has a number row this config will work.
-;; ) is easy to learn and grow in to: matches QWERTY and avoids sticky modes.
-;; ) allows responsive 130+ WPM by not overloading alpha keys.
-;; ) has good data entry characteristics via a home row number layer.
-;; ) prioritizes fast and accessible modifier & shortcut combos.
-;; ) allows right-handed shortcuts without leaving the mouse.
-;; ) has a tour at https://configure.zsa.io/voyager/layouts/5qRME/latest/0/intro
+#|
+
+Welcome to my layout! I call it Lean ANSI, or LANSI.
+
+LANSI is broadly compatible, designed around laptop use. If your keyboard is 60% or larger this config will work as is.
+LANSI is easy to learn and grow in to, matching QWERTY and avoiding sticky modes.
+LANSI features latency-free 130+ WPM typing without misfires by avoiding alpha key overloading (death to home row mods!)
+LANSI prioritizes fast and accessible modifier & shortcut combos, especially from the left hand.
+LANSI allows right-handed shortcuts without leaving the mouse via keyboard mirroring (sounds scarier than it is!)
+LANSI has a visual tour mimicing most of these comments at https://configure.zsa.io/voyager/layouts/5qRME/latest/0/intro
+
+|#
+
+
 
 ;; ---------- TOP LEVEL CONFIG ----------
 (defcfg
   process-unmapped-keys yes
   delegate-to-first-layer yes
 
-  ;; Kanata captures everything on Linux by default (including lid switch, power button, trackpad, etc),
-  ;; so we have to give it these device names to switch Kanata to allow-list mode instead
+  ;; Kanata captures everything on Linux by default, so we give it these device names to ignore the rest.
   linux-dev-names-include (
     "AT Translated Set 2 keyboard"
     "Logitech G305"
@@ -41,15 +45,16 @@
   lctl      lmet    lalt   spc      ralt    rmet     rctl
 
   mlft mrgt mmid mfwd mbck
-  ;; While we don't change the *primary* mouse buttons, we define them so that
+  ;; While we don't change the primary mouse buttons, we define them so that
   ;; tap-hold modifiers like shift-click are immediately responsive
 )
 
 
 
 ;; ---------- LAYERS ----------
-(deflayer base
-  esc       @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12
+
+(deflayer base 
+  @esc      @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12
 
   @`        @n1     @n2    @n3      @n4     @n5      @n6    @n7    @n8    @n9    @n0    -    =    bspc
   @tabultra @q      @w     @e       @r      @t       y      u      i      o      p      ret  XX   XX
@@ -57,52 +62,100 @@
   @bspclsft @zalt   @x     @c       @v      @b       n      m      ,      .      @/alt  @delrsft
   lctl      lctl    lctl   spc      @nmsm   @nmsm    @nmsm
 
-  ;; To help standardize across different physical layouts,
-  ;; all keys left of space are lctl and all keys right of space are @nmsm
-
   mlft mrgt mmid @nmsm f24
-) 
+)
+#| BASE LAYER
+-- Summary --
+The base layer is (almost) plain QWERTY. It's easy to grow in to as the extra features should not add latency or interfere with old habits.
 
 
+-- Shifts --
+Tap left shift for Backspace and right shift for Delete. We lose the ability to hold Backspace or Delete, but this is easily made up by 1) using the now ultra-comfy Ctrl+Backspace/Delete, or 2) Using the Extend layer to *hold* an arrow and highlight backwards/forwards, then tapping backspace or delete. Backspace is duplicated in its usual much-worse spot in the top-right corner if you have trouble adapting.
 
-(deflayer numsym ;; Numbers across home row and symbols surrounding them.
+
+-- Top Row --
+The top row is not very ergonomic to reach during typing flow so it is optimized for shortcut use. Tap them for the number, and hold them for Shift+Number. In this scenario, overloading with a Hold function does not increase typing latency. Even though they're just shortcut keys, they can get quite a workout when combined with Meta and Ultra for window management. You can, of course, continue to use them for numbers and symbols, but we'll check out the NumSym layer for that coming up next.
+
+
+-- Thumb Keys --
+Control lands immediately left of the space bar, easily accessible under the thumb and available for pairing with other keys as effortlessly as possible. The NumSym layer key lands immediately right of the space bar. These two are the only "thumb" keys you will need, as the other modifiers are set up in better places elsewhere in the layout.
+
+There is only a little bit of thumb tucking on ANSI boards when using these two keys, and laptops are usually even better about it than standard ANSI. These two thumb keys are duplicated across the bottom row to accomodate different physical layouts.
+
+-- Tab / Ultra --
+The Tab key is set to tab when tapped and Ultra (Ctrl+Alt+Meta: like "hyper", get it?..) when held  and is fundamental to allowing as many shortcuts as possible for workspace and app management. We exclude Shift from this key because holding the Num or F-key gives you the shifted variation. So Ultra+(Num), Ultra+(holdNum), Ultra+(Fkey), Ultra+(holdFkey), and Ultra+Alpha are all full sets of shortcuts that you can define in your operating system. Similar logic applies to combining other modifers with the number and F-keys, including Meta (which is already forced upon you in Windows). Tab is also one row higher than your home row, meaning reaching your numbers and even F-keys while holding it is still comfortable.
+
+-- Escape / Extend --
+The Caps Lock key is set to escape when tapped and the Extend layer when held. We'll check that layer out a bit later.
+
+-- Moving On --
+Hold the NumSym key and we'll check out that layer next.
+|#
+
+(deflayer numsym
   _         _       _      _        _       _        _      _      _      _      _      _    _
 
-  @f12      @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12  @f11
-  _         @`~     S--    -        [       ]        S-[    S-]    S-=    =      @\|    _    _     _
+  @f12      @f1     @f2    @f3      @f4     @f5      @f6    @f7    @f8    @f9    @f10   @f11 @f12 @f11
+  _         @`~     S--    -        [       ]        S-[    S-]    S-=    =      @\|    _    _    _
   _         @1      @2     @3       @4      @5       6      7      8      9      0      S-;  _
   _         @!alt   @S-8   @S-4     S-9     S-0      S-,    S-.    _      _      _      _
   _         _       _      _        _       _        _
 
   _    _    _    _    _
-
-  ;; f-keys cover the number row here for physical layouts that don't feature them. The strange 
-  ;; looking order is to accomodate 6-column ortholinear boards (Lily58, Voyager, etc).
-  ;; For these, F1 starts on 1 and then wraps around to the start for F12.
 )
+#| NUMSYM LAYER
+-- Summary --
+The NumSym layer handles all programming symbols and data entry: accounting, times, dates, calculator use, etc. It's faster to use 8 fingers across home row than 3 or 4 fingers in a numpad arrangement. The symbols needed more regularly are duplicated within the layer to save from Layer+Shift+key stretching during data entry flow.
 
+-- Transparency --
+The semi-colon key is overwritten by a zero, but we often need a colon for time entry so colon replaces the apostrophe. NO other symbols, modifiers, or control characters are overwritten from the base layer.
 
+-- F Keys --
+F-keys cover the number row here for physical layouts that don't feature them (and to prevent stretching even if you have them). The strange looking order is to accomodate 6-column ortholinear boards (Lily58, Voyager, etc). For these, F1 starts on 1 and then wraps around to F12.
 
-(deflayer extend ;; Shortcuts and text navigation via holding caps-lock key
-  _         @ef1    @ef2   @ef3     @ef4    @ef5     @ef6   @ef7   @ef8   @ef9   @ef10  @ef11 @ef12 ;; unconfigured row
+F-keys are still easily combined with any of their common modifiers in this layer, but Meta is a chore. Thankfully, this is a rare combination. However: instead of adding Autoshift to the F keys, you could choose to switch them to Autometa if you have a specific need for that. Alternatively, this top row is still wide open in the Extend layer (coming up next) for anything else you might need.
+
+-- Personalization --
+NumSym is a very personal layer, feel free to play around with it if you don't do a lot of data entry. Autoshifted numbers like the top row in the Base layer? Symbols by default that autoshift to numbers? Completely replace the numbers with NUMWORD? This version carefully balances data entry and programming use cases, but nothing is sacred here.
+
+If you want your data entry to be one-handed, Numpad could make a lot of sense here too: one of the mouse side button mirrors, but the other one is set up to enter this NumSym layer. You wouldn't need to take your hand off the mouse (or home row) to access all the numbers in a Numpad setup like that.
+
+-- Moving On --
+That's it for the NumSym layer! Let go of the right thumb key and you'll be back in the Base layer. Then hold Caps to go to Extend.
+|#
+
+(deflayer extend
+  _         @ef1    @ef2   @ef3     @ef4    @ef5     @ef6   @ef7   @ef8   @ef9   @ef10  @ef11 @ef12
 
   _         _       _      _        _       _        _      _      _      _      _      _    _    _
-  _         A-f4    XX     @mwu     f2      XX       prev   vold   volu   next   pp     _    _    _
-  _         ret     XX     @mwd     lsft    @gaming  left   down   up     rght   brdn   brup _
-  _         lrld    XX     @scsht   @clipb  caps     home   pgdn   pgup   end    _      _
+  _         @quit   XX     @mwu     @rename XX       prev   vold   volu   next   pp     _    _    _
+  _         @accept XX     @mwd     lsft    @gaming  left   down   up     rght   brdn   brup _
+  _         @reload XX     @scsht   @clipb  @caps    home   pgdn   pgup   end    _      _
   _         _       _      @lmet    _       _        _
 
   _    _    _    _    _
 )
+#| EXTEND LAYER
+-- Summary --
+The extend layer features navigation and media clusters on the right hand, laid out in HJKL locations. Pretty standard fare for a layer like this.
 
+-- Shift Key
+A very important (and super comfy!) shift key is featured on F, because your left pinky is already busy holding this layer on. Having Control, Shift, and Arrow/Nav keys so easily combined with each other takes text editing to a new level (at least where Vim motions aren't supported).
 
+-- Meta (finally) --
+The Meta key is found on the space bar in the Extend layer. For Meta+Alpha and Meta+Num combinations, this is still a very good spot despite being one layer deep. A quick roll of Extend+Meta, then press your character. If you still need to combine it with Control you can use your right thumb for Meta (spacebar!) and left thumb for Control, or even catch both keys with the same left thumb. Meta is also vital to pair with arrows for a lot of window managers, so it makes sense to exist in the same layer.
 
-;; The gaming layer removes tap-hold functionality from the left hand so that holding sends
-;;  appropriate input to games. It maintains mirroring to double your keybind options.
+-- Personalization --
+Pretty much all the other shortcuts on the left hand here are optional, they're just things that I happen to use a lot or wanted more comfortable access to. You can check out some of the rationale under the -EXTEND- header below.
+
+-- Moving On --
+That's it for the Extend layer! Instead of letting go of the Caps Lock key, tap G instead. This will take us to the Gaming Layer.
+|#
+
 (deflayer gaming
   _         _       _      _        _       _        _      _      _      _      _      _    _
 
-  _         @g1     @g2    @g3      @g4     @g5      6      7      8      9      0      _    _    _
+  `         @g1     @g2    @g3      @g4     @g5      6      7      8      9      0      _    _    _
   tab       _       _      _        _       _        _      _      _      _      _      _    _    _
   _         _       _      _        _       _        _      _      _      _      _      _    _
   lsft      _       _      _        _       _        _      _      _      _      _      _
@@ -110,22 +163,19 @@
 
   _    _    _    _    _
 )
+#| GAMING LAYER
+-- Summary --
+The gaming layer returns the keyboard to standard ANSI. Besides Escape/Extend all tap-holds are reverted and all modifier keys return to their original positions. This is almost the equivalent of terminating Kanata, but leaves mouse bindings meaning you can double up your keybinds using the mirroring feature. It's also nice for letting other people momentarily use your computer. 
+
+-- Exiting --
+To get out of the Gaming layer and back to Base, you follow the same procedure of Extend+G, but this time you hold G for 500ms. This ensures that the key works the same regardless of the current state: tapping always goes to Gaming, holding always leaves Gaming.
+
+-- Moving On --
+Those are all the layers! Three with extra features, and one with practically nothing. It's been optimized to death until it needed no more than that. Below you will find implementation details and a few more comments/rationale behind some specific keys. Be aware that the order of definitions seems a little goofy because Kanata relies on definitions existing before their aliases can be used in other commands (like the mirror forks).
+|#
 
 
-
-;; ---------- WINDOWS META FIX ----------
-;; Since Windows' Start menu shortcut can't be easily changed we use Kanata for it.
-;; Set PowerToys' Run (or preferred launcher) to Win+Spc and avoid the awful Start menu.
-
-(platform (win winiov2 wintercept)
-  (defalias lmet (tap-hold-press 0 $ht M-spc lmet)) ;; Tap for M-spc, hold for lmet
-)
-
-(platform (linux macos)
-  (defalias lmet lmet) ;; Meta is left alone on Linux/Mac but still must be defined
-)
-
-
+;; ---------- DETAILS -----------
 
 ;; ---------- VARIABLES ----------
 (defvar
@@ -147,11 +197,13 @@
 ;; ---------- LAYER CHANGES ----------
   nmsm (layer-while-held numsym)
   escext (tap-hold-press 0 $ht esc (layer-while-held extend))
-  gaming (tap-hold 0 $sht (layer-switch gaming) (layer-switch base)) ;; 'hold' always returns to base, 'tap' always goes to gaming.
+  gaming (tap-hold 0 500 (layer-switch gaming) (layer-switch base))
+
+  g; (tap-hold 0 500 ; (layer-switch base))
+  ;; For keyboards that only have two thumb keys, the Gaming layer needs this workaround. You'll have to replace Caps Lock's Escape/Extend with Control within the gaming layer to have all your modifiers, but this leaves no way to get out of the gaming layer. I've left this alias here as a solution for some specific physical layouts (ZSA Voyager comes to mind), but haven't needed it myself.
 
 
-
-;; ---------- BASE TAP-HOLDS (no forks) ----------
+;; ---------- BASE TAP-HOLDS (no mirroring) ----------
 
   f6 (tap-hold $tt $ht f6 S-f6)   f7 (tap-hold $tt $ht f7 S-f7)     f8 (tap-hold $tt $ht f8 S-f8)
   f9 (tap-hold $tt $ht f9 S-f9)  f10 (tap-hold $tt $ht f10 S-f10)  f11 (tap-hold $tt $ht f11 S-f11)
@@ -166,12 +218,13 @@
 
   zalt (tap-hold-press 0 $sht z ralt) ;; sometimes annoying at 130+ wpm, but rarely misfires more than 1x/day
   /alt (tap-hold-press 0 $sht / ralt) ;; even less common, this one almost never interferes
-
+  ;; With alt in their positions next to shift, you can hold both of them without losing your homing key.
 
 
 ;; ---------- BASE+MIRRORING ----------
-  ;; For all fork commands: mirror right half of keyboard onto left half when holding "f24",
-  ;; which is set to the mouse 'back' button. Enables one-handed shortcuts across the entire keyboard.
+#|
+This is a great layout in general (toot toot...), but mirroring really sprinkles a bit of magic on it. The mouse's back button sends f24 while held. If f24 is held, all keys on the left half of the board send their *mirrored* output instead. So f becomes j, d becomes k, etc. Next time you need to Ctrl+Y, Ctrl+O, Ctrl+H, etc, give it a shot. You might be surprised how natural this becomes, even typing short keywords, app launcher searches, or the first few characters of a country for shipping dropdown box auto-completes. It's really lovely to not have to leave the mouse for just a couple key presses, no matter where they are on the keyboard.
+|#
 
   f1 (fork (tap-hold $tt $ht f1 S-f1) @f10 (f24))
   f2 (fork (tap-hold $tt $ht f2 S-f2) @f9 (f24))
@@ -188,24 +241,17 @@
 
   ;; Mirroring bspclsft to delrsft is not recommended, as it makes for too many mouse button toggles when you make a mistake
   ;; during mirroring. Instead, to access del from left hand, use the top-left key (mnemonic of "the opposite backspace"):
-  escdel (fork esc del (f24))
-  ` (fork (tap-hold $tt $ht ` S-`) del (f24))
-
+  ` (fork (tap-hold $tt $ht ` S-`) del (f24)) ;; for ANSI boards
+  esc (fork esc del (f24)) ;; for compact boards that feature escape next to the number row
+  
   q (fork q p (f24)) w (fork w o (f24)) e (fork e i (f24)) r (fork r u (f24)) t (fork t y (f24))
   a (fork a ' (f24)) s (fork s l (f24)) d (fork d k (f24)) f (fork f j (f24)) g (fork g h (f24))
   z (fork @zalt @/alt (f24)) x (fork x . (f24)) c (fork c , (f24)) v (fork v m (f24)) b (fork b n (f24))
   1 (fork 1 0 (f24)) 2 (fork 2 9 (f24)) 3 (fork 3 8 (f24)) 4 (fork 4 7 (f24)) 5 (fork 5 6 (f24))
 
 ;; ---------- TAB / ULTRA ----------
-  ;; @tabultra (like "hyper", get it?...) is fundamental to allowing as many shortcuts as possible for workspace and app management.
-  ;; We exclude Shift from this key because holding the Num or F-key gives you the shifted variation. So Ultra+(Num), Ultra+(holdNum),
-  ;; Ultra+(Fkey) and Ultra+(holdFkey) are all full sets of shortcuts that you can define in your operating system.
-  ;; Similar logic applies to combining other modifers with the number and F-keys, including Meta (which is already forced upon you in Windows).
-  ;; Tab is also one row higher than your home row, meaning reaching your numbers and even F-keys while holding it is still comfortable.
 
-  ;; @tabultra is an exception to standard mirroring. Instead of mirroring, it "reverses" the tab key by changing its tap function to shift-tab.
-  ;; For left-handed use, this makes an otherwise impossible shortcut of shift-tab's (leftpinky + leftpinky) an easy (mousethumb + leftpinky).
-
+;; @tabultra is an exception to standard mirroring. Instead of mirroring, it "reverses" the tab key by changing its tap function to shift-tab. For left-hand-only use, this makes an otherwise impossible shortcut of (leftpinky + leftpinky) an easy (mousethumb + leftpinky).
   tabultra (fork (tap-hold-press 0 $ht tab (multi lalt lctl lmet)) (tap-hold-press 0 $ht S-tab (multi lalt lctl lmet)) (f24))
 
 
@@ -220,27 +266,55 @@
   
   S-8 (fork S-8 . (f24))
   S-4 (fork S-4 , (f24))
-  ;; the only symbols in numsym that I've experienced actually needing mirrors enabled.
-  ;; If you're in this layer and need all sorts of math you'll have both hands on the keyboard.
+  ;; the only symbols in numsym that I've experienced actually needing mirrors enabled. If you're in this layer and need all sorts of math you'll likely have both hands on the keyboard.
 
 
 
 ;; ---------- EXTEND ----------
+  quit A-f4
+  accept enter
+  ;; a left-handed return, great for *A*ccepting the default selections in dialogs without taking my hand off the mouse or hunting down buttons with my cursor.
+  
+  reload lrld
+  ;; for my constant Kanata experimentation. Not easy to hit by accident.
+
   mwu (mwheel-up 80 120)
   mwd (mwheel-down 80 120)
-  clipb (multi lctl lalt lsft lmet v) ;; Set CopyQ shortcut to match
-  scsht prtsc ;; defined as an alias for future expansion (different SS modes?)
+  ;; Mouse wheel up and down are handy when your hand *isn't* on the mouse: sometimes you only want to scroll the view and not also your input focus.
+
+  clipb (multi lctl lalt lsft lmet v)
+  ;; Set CopyQ shortcut to match May expand this in the future to other paste modes (plain text, shift-insert for terminal?)
+
+  scsht prtsc
+  ;; defined as an alias for future expansion (different SS modes?)
+
+  rename f2
+  ;; I use this a LOT so wanted it within very easy reach
+  
+  caps caps
+  ;; I stuffed caps lock on the "B" key of the Extend layer with the mnemonic of "bolding" text.
 
   ef1 XX ef2 XX ef3 XX ef4 XX ef5 XX ef6 XX ef7 XX ef8 XX ef9 XX ef10 XX ef11 XX ef12 XX
-  ;; To work around f-keys not being reliable on Linux for some laptop hardware, you can bind these to relevant hardware functions.
-  ;; Alternatively, it's a full set of shortcuts ready for whatever purpose you need, though it's a bit of a stretch for Extend+fkeys.
+  ;; To work around f-keys not being reliable on Linux for some laptop hardware, you can bind these to relevant hardware functions. Alternatively, it's a full set of shortcuts ready for whatever purpose you need, Extend+fkeys are a bit of a stretch. I do not personally use these.
 
 
 
 ;; ---------- GAMING ----------
+  ;; We removed the tap-holds but still want mirroring to work.
   g1 (fork 1 0 (f24))
   g2 (fork 2 9 (f24))
   g3 (fork 3 8 (f24))
   g4 (fork 4 7 (f24))
   g5 (fork 5 6 (f24))
+)
+
+;; ---------- WINDOWS META FIX ----------
+;; Since Windows' Start menu shortcut can't be easily changed we use Kanata for it. Set PowerToys' Run (or preferred launcher) to Win+Spc to avoid the awful Start menu.
+
+(platform (win winiov2 wintercept)
+  (defalias lmet (tap-hold-press 0 $ht M-spc lmet)) ;; Tap for M-spc, hold for lmet
+)
+
+(platform (linux macos)
+  (defalias lmet lmet) ;; Meta is left alone on Linux/Mac but still must be defined
 )
