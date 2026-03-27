@@ -14,8 +14,7 @@ For easier digestion, you may visit the (non-functional!) [Oryx Configurator tou
 * Pink: output when held
 * Blue: output when mirrored via mouse button
 
-![layout](https://github.com/user-attachments/assets/ca8cd606-8f9f-4904-ba1b-c085a52b55d4)
-<svg width="956" height="1624" viewBox="0 0 956 1624" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+![layout](https://github.com/user-attachments/assets/6f0c4ecf-488b-441c-9d49-dfc08644b08b)
 
 keymap-drawer.streamlit.app `svg_extra_style`:
 
