@@ -9,7 +9,7 @@ Welcome to my personal Kanata config! This...
 * prioritizes fast and accessible modifier & shortcut combos.
 * allows right-handed shortcuts without leaving the mouse.
 
-For easier digestion, you may visit the [Oryx Configurator tour](https://configure.zsa.io/voyager/layouts/5qRME/latest/0/intro). Otherwise, the config itself is well-commented and the below diagram is a good overview.
+The config itself is well-commented and the below diagram is a good overview. For easier digestion, you may visit the [Oryx Configurator tour](https://configure.zsa.io/voyager/layouts/5qRME/latest/0/intro). That layout is extremely similar, though not always updated perfectly in tandem. 
 
 ## Diagram
 * White: output when tapped
