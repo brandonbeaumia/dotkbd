@@ -96,7 +96,7 @@ The Caps Lock key is set to escape when tapped and the Extend layer when held. W
 
 
 -- Moving On --
-Hold the NumSym key and we'll check out that layer next.
+Hold the right thumb key for NumSym and we'll check out that layer next.
 |#
 
 (deflayer numsym
@@ -118,17 +118,17 @@ The NumSym layer handles all programming symbols and data entry: accounting, tim
 The semi-colon key is overwritten by a zero, but we often need a colon for time entry so colon replaces the apostrophe. No other symbols, modifiers, or control characters are overwritten from the base layer.
 
 -- F Keys --
-F-keys cover the number row here for physical layouts that don't feature them (and to prevent stretching even if you have them). The strange looking duplicates are to accomodate 6-column ortholinear boards (Lily58, Voyager, etc): for these, F1 starts on 1 and then wraps around to F12.
+F-keys cover the number row here for physical layouts that don't feature them (and to prevent stretching even if you have them). The strange looking duplicates are to accomodate 6-column ortholinear boards (Lily58, Voyager, etc): for these, F1 starts on 1 and then wraps around to F12. On a regular board where F-keys are available on top, switching this number row to their keypad equivalents could be useful for some creative applications.
 
 F-keys are still easily combined with any of their common modifiers in this layer, but Meta is a chore. Thankfully, this is a rare combination. However, instead of adding Autoshift to the F keys you could choose to switch them to Autometa if you have a specific need for that. Alternatively, this top row is still wide open in the Extend layer (coming up next) for anything else you might need.
 
 -- Personalization --
-NumSym is a very personal layer, feel free to play around with it if you don't do a lot of data entry. Autoshifted numbers like the top row in the Base layer? Symbols by default that autoshift to numbers? Completely replace the numbers with NUMWORD? This version carefully balances data entry and programming use cases, but nothing is sacred here.
+NumSym is a very personal layer, feel free to play around with it if you don't do a lot of data entry. Autoshifted numbers like the top row in the Base layer? Symbols by default that autoshift to numbers? Completely replace the numbers with NUMWORD? This version carefully balances data entry and programming use cases and has a lot of symmetry that makes it a little easier to remember, but nothing is sacred here!
 
-If you want your data entry to be one-handed, Numpad could make a lot of sense here too: one of the mouse side button mirrors, but the other one is set up to activate this NumSym layer. You wouldn't need to take your hand off the mouse to access all the numbers in a Numpad setup like that.
+If you want your data entry to be one-handed, Numpad could make a lot of sense here: one of the mouse side button mirrors, but the other one is set up to activate this NumSym layer. You wouldn't need to take your hand off the mouse to access all the numbers in a Numpad setup like that.
 
 -- Moving On --
-That's it for the NumSym layer! Let go of the right thumb key and you'll be back in the Base layer. Then hold Caps to go to Extend.
+That's it for the NumSym layer! Let go of the right thumb key and you'll be back in the Base layer. Then hold the Caps Lock key to go to the Extend layer.
 |#
 
 (deflayer extend
@@ -137,8 +137,8 @@ That's it for the NumSym layer! Let go of the right thumb key and you'll be back
   _         _       _      _        _       _        _      _      _      _      _      _    _    _
   _         @quit   XX     @mwu     @rename XX       prev   vold   volu   next   pp     _    _    _
   _         @accept XX     @mwd     lsft    @gaming  left   down   up     rght   brdn   brup _
-  _         lalt    XX     @scsht   @clipb  @caps    home   pgdn   pgup   end    _      _
-  _         _       _      @lmet    _       _        _
+  _         XX      XX     @scsht   @clipb  @caps    home   pgdn   pgup   end    _      _
+  _         lalt    _      @lmet    _       _        _
 
   _    _    _    _    _
 )
@@ -225,8 +225,9 @@ Those are all the layers! Three with extra features, and one with practically no
   delrsft (tap-hold-press $tt $ht del rsft)
   bspclsft (tap-hold-press $tt $ht bspc lsft)
 
-  zalt (tap-hold-press 0 $sht z ralt) ;; sometimes annoying at 130+ wpm, but rarely misfires more than 1x/day
   /alt (tap-hold-press 0 $sht / ralt) ;; even less common, this one almost never interferes
+  zalt (fork (tap-hold-press 0 $sht z ralt) @/alt (f24)) ;; sometimes annoying at 130+ wpm, but rarely misfires more than 1x/day
+  
   ;; With alt in their positions next to shift, you can hold both of them without losing your homing key.
 
 
@@ -283,7 +284,7 @@ The mouse's back button sends f24 while held. If f24 is held, all alphanumeric k
   quit A-f4
   ;; a quick forceful app closer
 
-  accept enter
+  accept return
   ;; a left-handed return, great for *A*ccepting the default selections in dialogs without taking my hand off the mouse or hunting down buttons with the cursor.
   
   reload lrld
