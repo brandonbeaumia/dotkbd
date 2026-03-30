@@ -16,13 +16,5 @@ For easier digestion, you may visit the [Oryx Configurator tour](https://configu
 * Pink: output when held
 * Blue: output when mirrored via mouse button
 * Blank: transparent or unbound
-* 
+
 ![lansi](https://github.com/user-attachments/assets/d5e4efbd-dba2-4421-ad21-1a6b4f403415)
-
-keymap-drawer.streamlit.app `svg_extra_style`:
-
-```
-text.hold {fill: #F3BFEF}
-text.tap {fill: #F7FFF7}
-text.shifted {fill: #72BBE2}
-```
