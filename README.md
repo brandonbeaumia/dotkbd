@@ -16,6 +16,6 @@ The config itself is well-commented and the below diagram is a good overview. Fo
 * Pink: output when held
 * Blue: output when mirrored via mouse button
 * Red: being held to enable the current layer
-* Blank: transparent or unbound
+* Blank: base layer: unbound. Other layers: transparent.
 
 ![lansi](https://github.com/user-attachments/assets/d5e4efbd-dba2-4421-ad21-1a6b4f403415)
