@@ -1,7 +1,7 @@
 layout: {qmk_keyboard: generic/75_ansi}
 layers:
   base:
-  - {t: esc, s: del}
+  - {t: A-tab, h: A-`, s: del}
   - {t: f1, h: S-f1, s: f10}
   - {t: f2, h: S-f2, s: f9}
   - {t: f3, h: S-f3, s: f8}
@@ -17,7 +17,7 @@ layers:
   - ''
   - ''
   - ''
-  - {t: '`', h: '~', s: del}
+  - {t: A-tab, h: A-`, s: del}
   - {t: '1', h: '!', s: '0'}
   - {t: '2', h: '@', s: '9'}
   - {t: '3', h: '#', s: '8'}
@@ -187,7 +187,7 @@ layers:
   - ''
   - ''
   - ''
-  - 
+  - reload
   - 
   - 
   - 
@@ -256,7 +256,7 @@ layers:
   - ''
   - ''
   gaming:
-  - 
+  - esc
   - 
   - 
   - 
