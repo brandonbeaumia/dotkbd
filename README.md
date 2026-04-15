@@ -18,4 +18,4 @@ The config itself is well-commented and the below diagram is a good overview. Fo
 * Red: being held to enable the current layer
 * Blank: base layer: unbound. Other layers: transparent.
 
-![lansi](https://github.com/user-attachments/assets/d5e4efbd-dba2-4421-ad21-1a6b4f403415)
+<img width="956" height="1624" alt="lansi" src="https://github.com/user-attachments/assets/6c79b680-e4bd-4d58-bd12-1291c77883b6" />
